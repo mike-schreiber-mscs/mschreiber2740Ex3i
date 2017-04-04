@@ -12,11 +12,11 @@ public class Main {
 		System.out.println("Correct: " + exam.totalCorrect());
 		System.out.println("Incorrect: " + exam.totalIncorrect());
 
-		if (exam.passed())
-			System.out.println("Passed test");
-		else System.out.println("Try again");
+		//if (exam.passed())
+		//	System.out.println("Passed test");
+		//else System.out.println("Try again");
 		
-		System.out.print("Questions missed: ");
+		//System.out.print("Questions missed: ");
 		//int[] missed = exam.questionsMissed();
 		//int i = 0;
 		//while (i < missed.length && missed[i] > 0) {

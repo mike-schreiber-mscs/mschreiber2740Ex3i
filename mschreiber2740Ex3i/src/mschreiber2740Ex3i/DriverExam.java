@@ -12,20 +12,25 @@ public class DriverExam {
 	
 	
 	
-
+	//constructor used in testing console
 	public DriverExam(char [] answers) {
 		super();
 		this.answers = new char [answers.length];
 		for(char i = 0; i < answers.length; i++)
-			answers[i] =(answers[i]);
+			answers[i] = (answers[i]);
 		
 	}
 	
+	//list model constructor
 	public DriverExam(DefaultListModel [] answers) {
-		
+		super();
+		this.answers = new char [answers.length];
+		for(char i = 0; i < answers.length; i++)
+			answers[i] = (answers[i]);
 	}
 	
-	//copy elements from Strings in defaultListModel to char[]
+	
+	//copy elements from Strings in defaultListModel to char[] array
 	public void setResponses(DefaultListModel responses){
 		this.responses = new char[responses.getSize()];
 		for(int i = 0; i < responses.getSize(); i++) {
@@ -36,28 +41,60 @@ public class DriverExam {
 	
 	
 	public DefaultListModel getAnswers(){
-		return(null);
+		throw new UnsupportedOperationException();
 		
 	}
+	
+	
 	
 	//validate return index of first element found in responses[] that is not A B C or D use a while loop that checks the index of array 
 	public int validate(){
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean passed(){
-		throw new UnsupportedOperationException();
+	
+	
+	public boolean passed(){		
+		boolean passed = false;
+		int numQuestions = 10; // how do I put the size of the array into numQuestions
+		int totalCorrect = totalCorrect();
+		
+		if(totalCorrect >= requiredPct * numQuestions) {
+			passed = true;
+		}
+		
+		else {
+			passed = false;
+		}
+		return passed;
 	}
+	
 	
 	public int totalCorrect(){
-		throw new UnsupportedOperationException();
-		
-		
+		int correct = 0;
+		for(int i = 0; i < answers.length; i++)
+		{
+			if(answers[i] == responses[i])
+			{
+				correct++;
+			}
+		}
+		return correct;		
 	}
 	
+	
 	public int totalIncorrect(){
-		throw new UnsupportedOperationException();
+		int incorrect = 0;
+		for(int i = 0; i < answers.length; i++)
+		{
+			if(answers[i] != responses[i])
+			{
+				incorrect++;
+			}
+		}
+		return incorrect;
 	}
+	
 	
 	public int questionsMissed(){
 		throw new UnsupportedOperationException();
