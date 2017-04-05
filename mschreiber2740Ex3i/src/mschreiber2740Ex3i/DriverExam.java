@@ -50,20 +50,25 @@ public class DriverExam {
 	
 	
 	
-	//THIS IS NOT WORKING ... RETURNS 66
+	
 	public int validate(){
 		int i = 0;
-		while(answers[i] != 'A' && answers[i] != 'B' && answers[i] != 'C' && answers[i] != 'D'){
+		while(i <= responses.length){
+			if(responses[i] != 'A' && responses[i] != 'B' && responses[i] != 'C' && responses[i] != 'D')
+				{
+				return i;		
+				
+				}
 			i++;
 		}
-		return answers[i];
+		return -1;
 	}
 
 	
 	
 	public boolean passed(){		
 		boolean passed = false;
-		int numQuestions = 10; // how do I put the size of the array into numQuestions
+		int numQuestions = answers.length;
 		int totalCorrect = totalCorrect();
 		
 		if(totalCorrect >= requiredPct * numQuestions) {
@@ -105,7 +110,7 @@ public class DriverExam {
 	
 	
 	//THIS ONE IS NOT WORKING EXAM.QUESTIONSMISSED CANNOT BE TYPE INT [] MISSED
-	public int questionsMissed(){
+	public int [] questionsMissed(){
 				
 		int [] missed = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		int m = 0;
@@ -119,7 +124,7 @@ public class DriverExam {
 			}
 		}
 		
-		return missed[m];
+		return missed;
 	}
 	
 }

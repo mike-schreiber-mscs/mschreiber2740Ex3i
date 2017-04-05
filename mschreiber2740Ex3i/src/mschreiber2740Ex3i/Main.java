@@ -23,16 +23,16 @@ public class Main {
 		DriverExam exam = mapper.getDriverExam();
 		
 		DefaultListModel responsesListModel = new DefaultListModel();
+		responsesListModel.addElement("A");
+		responsesListModel.addElement("A");
+		responsesListModel.addElement("A");
+		responsesListModel.addElement("A");
+		responsesListModel.addElement("A");
+		responsesListModel.addElement("A");
 		responsesListModel.addElement("B");
-		responsesListModel.addElement("D");
+		responsesListModel.addElement("Z");
 		responsesListModel.addElement("A");
-		responsesListModel.addElement("A");
-		responsesListModel.addElement("C");
-		responsesListModel.addElement("A");
-		responsesListModel.addElement("B");
-		responsesListModel.addElement("A");
-		responsesListModel.addElement("C");
-		responsesListModel.addElement("D");
+        responsesListModel.addElement("A");
 		exam.setResponses(responsesListModel);
 			
 		System.out.println("First invalid repsonse: " + exam.validate());
@@ -43,16 +43,19 @@ public class Main {
 			System.out.println("Passed test");
 		}
 			
-		else {
+		else 
+			{
 			System.out.println("Try again");
-			System.out.print("Questions missed: ");
-//			int [] missed = exam.questionsMissed();//***** why is this a problem
-//			int i = 0;
-//			while (i < missed.length && missed[i] > 0) {
-//				System.out.print(" " + missed[i]);
-//				i++;
 			}
-//		}
+		System.out.print("Questions missed: ");
+		int [] missed = exam.questionsMissed();
+		int i = 0;
+		while (i < missed.length && missed[i] > 0)
+			{
+				System.out.print(" " + missed[i]);
+				i++;
+			
+			}
 		
 		return;
 	}
