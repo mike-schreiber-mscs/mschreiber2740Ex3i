@@ -7,7 +7,7 @@ import javax.swing.DefaultListModel;
 public class DriverExam {
 	
 	private char [] answers;
-	private char [] responses = {'B', 'D', 'A', 'A', 'C','A', 'B', 'A', 'C', 'D'};
+	private char [] responses; 
 	private final double requiredPct = 0.7;
 	
 	
@@ -22,17 +22,19 @@ public class DriverExam {
 	}
 	
 	//list model constructor
-	public DriverExam(DefaultListModel [] answers) {
+	public DriverExam(DefaultListModel answers) {
 		super();
-		this.answers = new char [answers.length];
-		for(char i = 0; i < answers.length; i++)
-			answers[i] = (answers[i]);
+		this.answers = new char[answers.getSize()]; 
+		for(int i = 0; i < answers.getSize(); i++) {
+			String r = (String) answers.get(i);
+			this.answers[i] = r.charAt(0);
+		}
 	}
 	
 	
-	//copy elements from Strings in defaultListModel to char[] array
+	
 	public void setResponses(DefaultListModel responses){
-		this.responses = new char[responses.getSize()];
+		this.responses = new char[responses.getSize()]; 
 		for(int i = 0; i < responses.getSize(); i++) {
 			String r = (String) responses.get(i);
 			this.responses[i] = r.charAt(0);
@@ -40,6 +42,7 @@ public class DriverExam {
 	}
 	
 	
+	//NO IDEA WHERE THIS WAS EVER SETUP. NEVER SHOWN IN LECTURE
 	public DefaultListModel getAnswers(){
 		throw new UnsupportedOperationException();
 		
@@ -47,9 +50,13 @@ public class DriverExam {
 	
 	
 	
-	//validate return index of first element found in responses[] that is not A B C or D use a while loop that checks the index of array 
+	//THIS IS NOT WORKING ... RETURNS 66
 	public int validate(){
-		throw new UnsupportedOperationException();
+		int i = 0;
+		while(answers[i] != 'A' && answers[i] != 'B' && answers[i] != 'C' && answers[i] != 'D'){
+			i++;
+		}
+		return answers[i];
 	}
 
 	
@@ -96,11 +103,23 @@ public class DriverExam {
 	}
 	
 	
+	
+	//THIS ONE IS NOT WORKING EXAM.QUESTIONSMISSED CANNOT BE TYPE INT [] MISSED
 	public int questionsMissed(){
-		throw new UnsupportedOperationException();
+				
+		int [] missed = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		int m = 0;
+		
+		for(int i = 0; i < answers.length; i++) 
+		{
+			if(answers[i] != responses[i])
+			{
+				missed [m] = i + 1;
+				m++;
+			}
+		}
+		
+		return missed[m];
 	}
-	
-	
-	
 	
 }
