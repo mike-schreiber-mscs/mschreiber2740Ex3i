@@ -42,10 +42,18 @@ public class DriverExam {
 	}
 	
 	
-	//NO IDEA WHERE THIS WAS EVER SETUP. NEVER SHOWN IN LECTURE
-	public DefaultListModel getAnswers(){
-		throw new UnsupportedOperationException();
+	
+	public DefaultListModel getAnswers()
+	{
+		//CANNOT FIGURE OUT WHAT TO DO INSIDE THE LOOP
+		DefaultListModel answersListModel = new DefaultListModel();
+		for(int i = 0; i < answers.length; i++)
+		{			
+			String a = (String) answers[i];
+			this.answers[i] = a.charAt(0);
+		}
 		
+		return answersListModel;
 	}
 	
 	
@@ -56,11 +64,10 @@ public class DriverExam {
 		while(i <= responses.length){
 			if(responses[i] != 'A' && responses[i] != 'B' && responses[i] != 'C' && responses[i] != 'D')
 				{
-				return i;		
-				
+				return i;				
 				}
-			i++;
-		}
+				i++;
+			}
 		return -1;
 	}
 
