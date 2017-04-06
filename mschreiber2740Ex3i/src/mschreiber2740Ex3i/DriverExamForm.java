@@ -56,19 +56,19 @@ public class DriverExamForm extends JFrame {
 	public DriverExamForm() {
 		setTitle("Ex3I Driver Exam");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 311, 362);
+		setBounds(100, 100, 341, 356);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblOne = new JLabel("Result:");
-		lblOne.setBounds(149, 32, 46, 14);
+		lblOne.setBounds(130, 32, 46, 14);
 		contentPane.add(lblOne);
 		
 		lblResult = new JLabel("");
 		lblResult.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		lblResult.setBounds(149, 49, 124, 22);
+		lblResult.setBounds(130, 60, 191, 22);
 		contentPane.add(lblResult);
 		
 		JLabel lblResponses = new JLabel("Responses:");
@@ -97,7 +97,7 @@ public class DriverExamForm extends JFrame {
 		});
 		responsesList.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		responsesList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		responsesList.setBounds(69, 59, 36, 185);
+		responsesList.setBounds(80, 57, 36, 185);
 		contentPane.add(responsesList);
 		
 		questNumLabel = new JLabel("#0:");
@@ -143,7 +143,7 @@ public class DriverExamForm extends JFrame {
 			}
 		});
 		btnPass.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnPass.setBounds(147, 82, 114, 23);
+		btnPass.setBounds(130, 93, 114, 23);
 		contentPane.add(btnPass);
 		
 		JButton btnCorrect = new JButton("Correct");
@@ -153,7 +153,7 @@ public class DriverExamForm extends JFrame {
 			}
 		});
 		btnCorrect.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnCorrect.setBounds(147, 113, 114, 23);
+		btnCorrect.setBounds(130, 127, 114, 23);
 		contentPane.add(btnCorrect);
 		
 		JButton btnIncorrect = new JButton("Incorrect");
@@ -163,7 +163,7 @@ public class DriverExamForm extends JFrame {
 			}
 		});
 		btnIncorrect.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnIncorrect.setBounds(147, 147, 114, 23);
+		btnIncorrect.setBounds(130, 161, 114, 23);
 		contentPane.add(btnIncorrect);
 		
 		JButton btnListIncorrect = new JButton("List Incorrect");
@@ -173,7 +173,7 @@ public class DriverExamForm extends JFrame {
 			}
 		});
 		btnListIncorrect.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnListIncorrect.setBounds(147, 183, 114, 23);
+		btnListIncorrect.setBounds(130, 195, 114, 23);
 		contentPane.add(btnListIncorrect);
 		
 		DriverExamObjMapper mapper = new DriverExamObjMapper("DriverExam.txt");
@@ -278,7 +278,7 @@ public class DriverExamForm extends JFrame {
 		}
 		else
 		{
-			lblResult.setText("Total Correct: " + exam.totalIncorrect());
+			lblResult.setText("Total Incorrect: " + exam.totalIncorrect());
 		}
 	}
 	
@@ -293,7 +293,7 @@ public class DriverExamForm extends JFrame {
 		}
 		else
 		{
-			lblResult.setText("Total Correct: " + exam.questionsMissed());
+			lblResult.setText("Question missed: " + exam.questionsMissed());
 		}
 	}
 }

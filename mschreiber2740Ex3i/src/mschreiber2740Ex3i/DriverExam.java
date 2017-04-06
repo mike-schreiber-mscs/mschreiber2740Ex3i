@@ -36,8 +36,8 @@ public class DriverExam {
 	public void setResponses(DefaultListModel responses){
 		this.responses = new char[responses.getSize()]; 
 		for(int i = 0; i < responses.getSize(); i++) {
-			String r = (String) responses.get(i);
-			this.responses[i] = r.charAt(0);
+			String r = (String)responses.get(i);
+			this.responses[i] =  r.charAt(0);
 		}
 	}
 	
@@ -45,12 +45,12 @@ public class DriverExam {
 	
 	public DefaultListModel getAnswers()
 	{
-		//CANNOT FIGURE OUT WHAT TO DO INSIDE THE LOOP
+		
 		DefaultListModel answersListModel = new DefaultListModel();
 		for(int i = 0; i < answers.length; i++)
 		{			
-			String a = (String) answers[i];
-			this.answers[i] = a.charAt(0);
+			String s = String.valueOf(answers[i]);
+			answersListModel.addElement(s);
 		}
 		
 		return answersListModel;
@@ -61,7 +61,7 @@ public class DriverExam {
 	
 	public int validate(){
 		int i = 0;
-		while(i <= responses.length){
+		while(i <= responses.length - 1){
 			if(responses[i] != 'A' && responses[i] != 'B' && responses[i] != 'C' && responses[i] != 'D')
 				{
 				return i;				
@@ -116,8 +116,8 @@ public class DriverExam {
 	
 	
 	
-	//THIS ONE IS NOT WORKING EXAM.QUESTIONSMISSED CANNOT BE TYPE INT [] MISSED
-	public int [] questionsMissed(){
+	
+	public String questionsMissed(){
 				
 		int [] missed = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		int m = 0;
@@ -131,7 +131,21 @@ public class DriverExam {
 			}
 		}
 		
-		return missed;
-	}
+		int i = 0;
+		String s = "";
+		while (i < missed.length && missed[i] > 0)
+			{
+			if(i == 0)
+			{
+				s += missed[i];
+			}
+			else
+			{
+				s += ", " + missed[i];
+			}			
+				i++;				
+			}
+		return s;
+		}
 	
 }
